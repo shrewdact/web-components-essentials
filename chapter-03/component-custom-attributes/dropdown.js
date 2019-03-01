@@ -7,6 +7,10 @@ template.innerHTML = `
 `;
 
 class XDropdown extends HTMLElement {
+  static get observedAttributes() {
+    return ['title'];
+  }
+
   // ES2105 classes support Getters adn Setters
   set title(value) {
     this._title = value;
@@ -32,9 +36,16 @@ class XDropdown extends HTMLElement {
     this.contentElement.style.display = 'none';
   }
 
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === 'title' && oldValue !== newValue) {
+      this.title = newValue;
+    }
+  }
+
   toggle() {
     this.show = !this.show;
     this.contentElement.style.display = this.show ? 'block' : 'none';
+    this.dispatchEvent(new CustomEvent('show', { detail: this.show }));
   }
 }
 
