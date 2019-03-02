@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Web Component Essentials</title>
+  </head>
+  <body>
+    <x-dropdown>
+      Hello From Published Component
+    </x-dropdown>
+
+    <!-- Browsers that do not support Web Cponents APIs -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.0.0/webcomponents-bundle.js"></script>
+
+    <!-- ES2015+ version of our library for evergreen browsers -->
+    <script
+      type="module"
+      src="https://unpkg.com/following-web-components-essentials/src/dropdown.js"
+    ></script>
+  </body>
+</html>
